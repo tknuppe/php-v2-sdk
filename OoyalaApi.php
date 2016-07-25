@@ -177,6 +177,20 @@ class OoyalaApi
     }
 
     /**
+     * Generates a POST request to the Ooyala API to post raw data.
+     * @param string $requestPath The path of the resource from the request.
+     * @param string $requestBody The raw POST data to send. Defaults to an empty string.
+     * @param array  $queryParams The associative array with GET parameters.
+     *                            Defaults to array().
+     * @return string the response body.
+     * @throws OoyalaRequestErrorException if an error occurs.
+     */
+    public function postRaw($requestPath, $requestBody = '', $queryParams = array())
+    {
+        return $this->sendRequest('POST', $requestPath, $queryParams, $requestBody);
+    }
+
+    /**
      * Generates a PUT request to the Ooyala API.
      * @param string $requestPath The path of the resource from the request.
      * @param array  $requestBody The POST data to send. Defaults to array().
